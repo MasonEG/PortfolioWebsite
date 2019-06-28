@@ -1,0 +1,24 @@
+.Alive {
+    background-color: #e8e129;
+    border: none;
+    color: none;
+    padding: 10px 10px;
+
+}
+
+.Dead {
+    background-color: #061244;
+    border: none;
+    color: none;
+    padding: 10px 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    line-height: 0;
+}
