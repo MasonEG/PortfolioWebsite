@@ -14,24 +14,16 @@ class Todo extends Component {
 		}
 		return (
 			<Box
-			alignContent="center"
+			direction="row"
+			justify="between"
 			elevation="xsmall"
-			pad="xsmall"
-			gap="small"
-			background={{color: "accent-1"}}
+			pad={{"left": "small"}}
+			round="small"
+			margin="small"
+			background="accent-1"
 			>
-				<Grid
-				fill
-				rows={["flex"]}
-				columns={["flex", "50px"]}
-				areas={[
-					{name: "checkbox", start:[0, 0], end: [0, 0]},
-					{name: "delete", start: [1, 0], end: [1, 0]}
-				]}
-				>
-					<CheckBox gridArea="checkbox" label={tag} checked={this.props.isDone} onChange={this.props.handleCheck}/>
-					<Button gridArea="delete" icon={<Trash />} alignSelf="end" hoverIndicator={true} onClick={this.props.delete}>Delete</Button>
-				</Grid>
+				<CheckBox label={tag} checked={this.props.isDone} onChange={this.props.handleCheck}/>
+				<Button icon={<Trash />} margin="none"  label="" hoverIndicator={true} onClick={this.props.delete} />
 			</Box>
 		);
 	}

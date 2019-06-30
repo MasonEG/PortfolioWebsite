@@ -1,8 +1,7 @@
 import React, {Component} from "react";
 import Todo from "./Todo";
 import AddItemBar from "./AddItemBar";
-import {Box, Button, CheckBox, Heading, InfiniteScroll, Grid, Grommet } from "grommet";
-import { Add, Trash } from 'grommet-icons';
+import {Box, Heading, InfiniteScroll, Grommet } from "grommet";
 import { grommet } from "grommet/themes";
 
 
@@ -31,6 +30,11 @@ class App extends Component {
 
 	addTodo = (msg) => { //good
 		//make a todo item with this.state.inputText as the msg
+		console.log(this.state.todos);
+		if(this.state.todos.includes(msg)) { //TODO fix the logic for this!
+			alert("You can't write duplicate todo items!");
+			return;
+		}
 		let replace = this.state.todos;
 		replace.push({msg: msg, isDone: false});
 		this.setState({todos: replace});
@@ -39,35 +43,33 @@ class App extends Component {
 	render() {
 		return (
 			<Grommet theme={grommet}>
-				<Grid
-					fill
-					rows={["60px", "flex"]}
-					columns={["xsmall", "fit", "xsmall"]}
-					areas={[
-						{name: "header", start: [1, 0], end: [1, 0]},
-						{name: "list", start: [1, 1], end: [1, 1]}
-					]}
-				>
-				<Heading gridArea="header" margin={{"top": "10px", "bottom": "0px"}} textAlign="center">Your Todo List</Heading>
-				<Box
-					gridArea="list"
-					alignContent="center"
-					gap="small"
-					pad="small"
-					background={{color: "brand"}}
-					round
-				>
-					<AddItemBar addTodo={this.addTodo} />
-					{/* {this.state.todos.map(todo => 
-						<Todo  msg={todo.msg} isDone={todo.isDone} delete={this.removeTodo.bind(this, todo)} handleCheck={this.handleTodoCheck.bind(this, todo)}/>
-					)} */}
-					<InfiniteScroll items={this.state.todos}>
-						{item => (
-							<Todo msg={item.msg} isDone={item.isDone} delete={this.removeTodo.bind(this, item)} handleCheck={this.handleTodoCheck.bind(this, item)} />
-						)}
-					</InfiniteScroll>
+				<Box 
+				pad="none" 
+				fill="vertical"
+				align="center" 
+				background="dark-2">
+					<Heading
+					margin={{
+						"vertical": "xsmall"	
+					}}
+					>
+						Your Todo List
+					</Heading>
+					<Box 
+					pad="small" 
+					background={{"color": "brand"}} 
+					width="medium" 
+					round="small"
+					overflow={{"vertical": "auto"}}
+					gap="small">
+						<AddItemBar addTodo={this.addTodo} />
+						<InfiniteScroll items={this.state.todos} step={5}>
+							{item => (
+								<Todo key={item.msg} msg={item.msg} isDone={item.isDone} delete={this.removeTodo.bind(this, item)} handleCheck={this.handleTodoCheck.bind(this, item)} />
+							)}
+						</InfiniteScroll>
+					</Box>
 				</Box>
-				</Grid>
 			</Grommet>
 		)
 	}

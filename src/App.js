@@ -15,13 +15,13 @@ class App extends Component {
 	updateMain = num => {
 		switch(num) {
 			case 0:
-				this.setState({mainContent: <Text>About Me</Text>});
+				this.setState({mainContent: <Text key="about_me" >About Me</Text>});
 				break;
 			case 1:
-				this.setState({mainContent: <GameOfLife />});
+				this.setState({mainContent: <GameOfLife key="game_of_life" />});
 				break;
 			case 2:
-				this.setState({mainContent: <TodoList />});
+				this.setState({mainContent: <TodoList key="todo_list"/>});
 				break;
 			default:
 				this.setState({mainContent: <Text>🚨 ERR 🚨</Text>});
@@ -84,17 +84,17 @@ class App extends Component {
 						</Box>
 					</Button>
 				))} */}
-				<Button key={'About Me'} onClick={this.updateMain(0)} hoverIndicator>
+				<Button key="About Me" onClick={() => {this.updateMain(0)}} hoverIndicator>
 					<Box pad={{horizontal: "medium", vertical: "small"}}>
 						<Text>About Me</Text>
 					</Box>
 				</Button>
-				<Button key={'About Me'} onClick={this.updateMain(1)} hoverIndicator>
+				<Button key="Game of Life" onClick={() => {this.updateMain(1)}} hoverIndicator>
 					<Box pad={{horizontal: "medium", vertical: "small"}}>
 						<Text>Game of life</Text>
 					</Box>
 				</Button>
-				<Button key={'About Me'} onClick={this.updateMain(2)} hoverIndicator>
+				<Button key="Todo List" onClick={() => {this.updateMain(2)}} hoverIndicator>
 					<Box pad={{horizontal: "medium", vertical: "small"}}>
 						<Text>todo list</Text>
 					</Box>
@@ -108,7 +108,7 @@ class App extends Component {
 			align="center"
 			background="dark-2"
 			>
-				
+				{this.state.mainContent}
 			</Box>
         </Grid>
       </Grommet>

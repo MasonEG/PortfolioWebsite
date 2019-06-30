@@ -18,6 +18,11 @@ class AddItemBar extends Component {
 			e.preventDefault().
 		*/
 		e.preventDefault();
+		if(this.state.title.length == 0 || this.state.title.length > 25) {
+			alert("message invalid");
+			this.setState({title: ''})
+			return;
+		}
 		this.props.addTodo(this.state.title);
 		this.setState({ title: '' }); //reset the state
 	}
@@ -26,30 +31,19 @@ class AddItemBar extends Component {
 	
 	render() {
 		return (
-
+		<form onSubmit={this.handleSubmit}>
 			<Box
-				alignContent="center"
-				pad="xsmall"
-				height="55px"
-				elevation="xsmall"
-				background={{color: "light-2"}}
-				round
+			align="center"
+			justify="center"
+			direction="row"
+			background="light-3"
+			round="small"
+			gap="small"
 			>
-				<form onSubmit={this.handleSubmit}>
-					<Grid
-					fill
-					rows={["flex"]}
-					columns={["3/4", "1/4"]}
-					areas={[
-						{name: "inputText", start:[0, 0], end: [0, 0]},
-						{name: "add", start: [1, 0], end: [1, 0]}
-					]}
-					>
-						<TextInput placeholder="add something to do" gridArea="inputText" value={this.state.title} onChange={this.onChange}/>
-						<Button icon={<Add />} gridArea="add" alignSelf="end" hoverIndicator={true} type="submit">Add Task</Button>
-					</Grid>
-				</form>
+				<TextInput placeholder="add something to do" gridArea="inputText" value={this.state.title} onChange={this.onChange} plain={true}/>
+				<Button icon={<Add />} gridArea="add" alignSelf="end" hoverIndicator={true} type="submit">Add Task</Button>
 			</Box>
+		</form>
 		)
 	}
 }
