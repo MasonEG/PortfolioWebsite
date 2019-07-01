@@ -21,4 +21,6 @@ ul {
 
 li {
     line-height: 0;
+    white-space: nowrap;
+    margin: 0;
 }

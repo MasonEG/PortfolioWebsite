@@ -16,10 +16,10 @@ class Todo extends Component {
 			<Box
 			direction="row"
 			justify="between"
-			elevation="xsmall"
+			margin={{"vertical": "none"}}
 			pad={{"left": "small"}}
 			round="small"
-			margin="small"
+			flex={false}
 			background="accent-1"
 			>
 				<CheckBox label={tag} checked={this.props.isDone} onChange={this.props.handleCheck}/>

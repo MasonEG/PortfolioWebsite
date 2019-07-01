@@ -4,6 +4,8 @@ import { grommet } from "grommet/themes";
 import { FormDown, FormPrevious, Menu} from 'grommet-icons'
 import TodoList from "./todo_list/TodoList";
 import GameOfLife from "./game_of_life/GameOfLife";
+import Sidebar from "./Sidebar";
+import AboutWebsite from "./AboutWebsite";
 
 
 class App extends Component {
@@ -12,16 +14,19 @@ class App extends Component {
 		mainContent: (<Text>main</Text>),
 	};
 
-	updateMain = num => {
-		switch(num) {
-			case 0:
+	updateMain = pageName => {
+		switch(pageName) {
+			case "About":
 				this.setState({mainContent: <Text key="about_me" >About Me</Text>});
 				break;
-			case 1:
+			case "GOL":
 				this.setState({mainContent: <GameOfLife key="game_of_life" />});
 				break;
-			case 2:
-				this.setState({mainContent: <TodoList key="todo_list"/>});
+			case "TL":
+				this.setState({mainContent: <TodoList key="todo_list" />});
+				break;
+			case "WS":
+				this.setState({mainContent: <AboutWebsite key="about_website" />});
 				break;
 			default:
 				this.setState({mainContent: <Text>🚨 ERR 🚨</Text>});
@@ -60,51 +65,9 @@ class App extends Component {
 			<Heading color="light-1" size="25px" margin="xsmall">Mason Gil</Heading>
             <Text>masonegil@gmail.com</Text>
           </Box>
-          {this.state.sidebar && (
-			// This outer box is so the background isn't white while the sidebar box slides in
-			<Box 
-			background="dark-2"
-			gridArea="sidebar"
-
-			>
-			<Box
-				background="neutral-2"
-				width="small"
-				fill="vertical"
-				animation={[
-					{ type: "fadeIn", duration: 1000 },
-					{ type: "slideRight", size: "xlarge", duration: 500 }
-				]}
-			>
-				{/* all sidebar content goes in this box */}
-				{/* {['About Me', 'Projects', 'Contact'].map(name => (
-					<Button key={name} href="#" hoverIndicator>
-						<Box pad={{horizontal: "medium", vertical: "small"}}>
-							<Text>{name}</Text>
-						</Box>
-					</Button>
-				))} */}
-				<Button key="About Me" onClick={() => {this.updateMain(0)}} hoverIndicator>
-					<Box pad={{horizontal: "medium", vertical: "small"}}>
-						<Text>About Me</Text>
-					</Box>
-				</Button>
-				<Button key="Game of Life" onClick={() => {this.updateMain(1)}} hoverIndicator>
-					<Box pad={{horizontal: "medium", vertical: "small"}}>
-						<Text>Game of life</Text>
-					</Box>
-				</Button>
-				<Button key="Todo List" onClick={() => {this.updateMain(2)}} hoverIndicator>
-					<Box pad={{horizontal: "medium", vertical: "small"}}>
-						<Text>todo list</Text>
-					</Box>
-				</Button>
-			</Box>
-			</Box>
-		  )}
+          {this.state.sidebar && <Sidebar updateMain={this.updateMain} />}
 			<Box 
 			gridArea="main" 
-			justify="center"
 			align="center"
 			background="dark-2"
 			>

@@ -18,8 +18,8 @@ class AddItemBar extends Component {
 			e.preventDefault().
 		*/
 		e.preventDefault();
-		if(this.state.title.length == 0 || this.state.title.length > 25) {
-			alert("message invalid");
+		if(this.state.title.length == 0 || this.state.title.length > 35) {
+			alert("message must be between 0 and 35 characters !");
 			this.setState({title: ''})
 			return;
 		}
@@ -41,7 +41,7 @@ class AddItemBar extends Component {
 			gap="small"
 			>
 				<TextInput placeholder="add something to do" gridArea="inputText" value={this.state.title} onChange={this.onChange} plain={true}/>
-				<Button icon={<Add />} gridArea="add" alignSelf="end" hoverIndicator={true} type="submit">Add Task</Button>
+				<Button icon={<Add />} gridArea="add" label="" alignSelf="end" hoverIndicator={true} type="submit" />
 			</Box>
 		</form>
 		)

@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import Todo from "./Todo";
 import AddItemBar from "./AddItemBar";
-import {Box, Heading, InfiniteScroll, Grommet } from "grommet";
+import {Box, Heading, Grommet } from "grommet";
 import { grommet } from "grommet/themes";
 
 
@@ -30,8 +30,8 @@ class App extends Component {
 
 	addTodo = (msg) => { //good
 		//make a todo item with this.state.inputText as the msg
-		console.log(this.state.todos);
-		if(this.state.todos.includes(msg)) { //TODO fix the logic for this!
+		console.log(this.state.todos.filter(todo => (todo.msg == msg)));
+		if(this.state.todos.filter(todo => (todo.msg == msg)).length > 0) { //TODO fix the logic for this!
 			alert("You can't write duplicate todo items!");
 			return;
 		}
@@ -56,18 +56,17 @@ class App extends Component {
 						Your Todo List
 					</Heading>
 					<Box 
-					pad="small" 
+					pad="none" 
 					background={{"color": "brand"}} 
-					width="medium" 
+					width="600px" 
 					round="small"
+					pad="xsmall"
 					overflow={{"vertical": "auto"}}
 					gap="small">
 						<AddItemBar addTodo={this.addTodo} />
-						<InfiniteScroll items={this.state.todos} step={5}>
-							{item => (
-								<Todo key={item.msg} msg={item.msg} isDone={item.isDone} delete={this.removeTodo.bind(this, item)} handleCheck={this.handleTodoCheck.bind(this, item)} />
-							)}
-						</InfiniteScroll>
+						{this.state.todos.map(item => (
+							<Todo key={item.msg} msg={item.msg} isDone={item.isDone} delete={this.removeTodo.bind(this, item)} handleCheck={this.handleTodoCheck.bind(this, item)} />
+						))}
 					</Box>
 				</Box>
 			</Grommet>

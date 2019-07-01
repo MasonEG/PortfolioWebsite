@@ -1,46 +1,12 @@
 import React, { Component } from "react";
-import './square.css';
-
-class Square extends Component { //renders a square given a prop value
-	
-	render() {
-		let className = "Dead";
-		if(this.props.isAlive) {
-			className = "Alive";
-		}
-		return (
-			<button onClick={this.props.handleClick} className={className}></button>
-		);
-	}
-}
-
-class Grid extends Component { //returns all the squares in a neat component
-
-	genSquares() {
-		let squares = []
-		for(let i = 0; i < 50; i++) {
-			let row = []
-			for(let j = 0; j < 50; j++) {
-				row.push(<Square key={i + ', ' + j} isAlive={this.props.vals[i][j]} handleClick={() => this.props.handleClick(i, j)} />)
-			}
-			squares.push(row);
-		}
-
-		return squares.map(row => <li key={Math.random()}>{row}</li>);
-	}
-
-	render() {
-		return (
-			<>
-			<ul>
-				{this.genSquares()}
-			</ul>
-			</>
-		);
-	}
-}
+import {Box, Grommet, Button } from "grommet";
+import { grommet } from "grommet/themes";
+import Grid from "./Grid";
 
 class GameOfLife extends Component {
+
+	DIMENSION = 40;
+
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -57,9 +23,9 @@ class GameOfLife extends Component {
 
 	genVals = () => {
 		let ret = [];
-		for(let i = 0; i < 50; i++) {
+		for(let i = 0; i < this.DIMENSION; i++) {
 			let row = []
-			for(let j = 0; j < 50; j++) {
+			for(let j = 0; j < this.DIMENSION; j++) {
 				row.push(false);
 			}
 			ret.push(row);
@@ -69,8 +35,8 @@ class GameOfLife extends Component {
 
 	countNeighbors = (i, j) => {
 		let count = 0;
-		for(let q = (i == 0) ? 0 : i - 1; (q <= i + 1) && (q < 50); q++) { 
-			for(let p = (j == 0) ? 0 : j - 1; (p <= j + 1) && (p < 50); p++) {
+		for(let q = (i == 0) ? 0 : i - 1; (q <= i + 1) && (q < this.DIMENSION); q++) { 
+			for(let p = (j == 0) ? 0 : j - 1; (p <= j + 1) && (p < this.DIMENSION); p++) {
 				//console.log('count: (' + q + ', ' + p + ') ' + (this.state.vals[q][p] && (q != i || p != j))); //use this for debug
 				if(this.state.vals[q][p] && (q != i || p != j)) {
 					count++;
@@ -82,8 +48,8 @@ class GameOfLife extends Component {
 
 	step = () => { //if you can find an algorithm for this faster than n^2 lmk
 		let newVals = this.state.vals.map(row => {return row.slice()});
-		for(let i = 0; i < 50; i++) { //calculate the new version of vals
-			for(let j = 0; j < 50; j++) {
+		for(let i = 0; i < this.DIMENSION; i++) { //calculate the new version of vals
+			for(let j = 0; j < this.DIMENSION; j++) {
 				//console.log('step: measuring (' + i + ', ' + j + ')'); //use this for debug
 				let count = this.countNeighbors(i, j); //count the creature's neighbors
 				if(count > 0){
@@ -101,7 +67,7 @@ class GameOfLife extends Component {
 	}
 
 	loadPreset = () => {
-		let anchor = 22; //this is the i & j value the preset will be centered on
+		let anchor = 10; //this is the i & j value the preset will be centered on
 		let preset = [
 			{i: anchor, j: anchor},
 			{i: anchor + 1, j: anchor},
@@ -123,16 +89,30 @@ class GameOfLife extends Component {
 
 	render() {
 		return (
-			<>
-				<Grid vals={this.state.vals} handleClick={this.handleClick} /><br />
-				<button onClick={this.step}>Step</button>
-				<button onClick={this.loadPreset}>Load Preset</button><br />
-				<p>
-					John Conway's Game of Life implemented in React.js. <a href="https://wdmegil.wd.its.iastate.edu/GameOfLifeAttempt2.php">
-						Check out my previous implementation for a good explanation.
-					</a>
-				</p>
-			</>
+			<Grommet theme={grommet}>
+				<Box 
+				fill={true}
+				background="dark-2"
+				>
+				<Box
+				background="dark-2"
+				overflow="scroll"
+				>
+					<Grid vals={this.state.vals} handleClick={this.handleClick} />
+				</Box>
+				<Box
+				align="center"
+				justify="center"
+				direction="row"
+				background="dark-2"
+				gap="small"
+				>
+				<Button onClick={this.step}>Step</Button>
+				<Button onClick={this.loadPreset}>Load Preset</Button><br />
+				</Box>
+				</Box>
+
+			</Grommet>
 		);
 	}
 }
