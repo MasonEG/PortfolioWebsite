@@ -1,3 +1,5 @@
+//this file is the main website component
+
 import React, { Component } from "react";
 import { Grommet, Grid, Heading, Button, Box, Text } from "grommet";
 import { grommet } from "grommet/themes";
@@ -6,12 +8,13 @@ import TodoList from "./todo_list/TodoList";
 import GameOfLife from "./game_of_life/GameOfLife";
 import Sidebar from "./Sidebar";
 import AboutWebsite from "./AboutWebsite";
+import GithubLink from "./GithubLink";
 
 
 class App extends Component {
 	state = { 
 		sidebar: true,
-		mainContent: (<Text>main</Text>),
+		mainContent: (<GithubLink link={"www.google.com"} />),
 	};
 
 	updateMain = pageName => {
