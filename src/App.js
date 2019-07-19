@@ -14,7 +14,7 @@ import GithubLink from "./GithubLink";
 class App extends Component {
 	state = { 
 		sidebar: true,
-		mainContent: (<GithubLink link={"www.google.com"} />),
+		mainContent: (<GithubLink link={"//www.google.com"} />),
 	};
 
 	updateMain = pageName => {

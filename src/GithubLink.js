@@ -12,32 +12,37 @@ class GithubLink extends Component {
 
     render() {
         return (
-            <Grommet theme={grommet}>
+                <Box
+				width="medium"
+				height="xsmall"
+                background="light-3"
+                margin="small"
+                padding="xsmall"
+                round="medium"
+                border={{
+                    "color": "dark-2",
+                    "size": "medium",
+                    "style": "groove",
+                    "side": "all"
+                }}
+                >
 
-                    <Box
-                    width="medium"
-                    height="small"
-                    align="center"
-                    direction="row"
-                    background="light-3"
-                    border={{
-                        "color": "dark-2",
-                        "size": "medium",
-                        "style": "groove",
-                        "side": "all"
-                    }}
-                    >
-                        <Button
-                        href={this.props.link}
-                        >
-                        <Box width="small" height="small">
-                            <Image src={githublogo} fit="contain" />
-                        </Box>
-                        <Text>Check this project out on Github!</Text>
-                        </Button>
-                    </Box>
-                
-            </Grommet>
+					<Button
+					plain={true}
+					href={this.props.link}
+					>
+						<Box
+						flex
+						align="center"
+						direction="row"
+						>
+							<Box width="xsmall" height="xsmall" margin="0px">
+								<Image src={githublogo} fit="contain" />
+							</Box>
+							<Text>Check this project out on Github!</Text>
+						</Box>
+					</Button>
+                </Box>
         );
     }
 }
