@@ -1,3 +1,4 @@
+// this is a todolist template built by a member of the Grommet team to help me with styling when I reached out
 import React, { Component } from 'react'
 import { Grommet, Box, Heading, TextInput, Button, CheckBox } from 'grommet'
 import { Add, Trash } from 'grommet-icons'

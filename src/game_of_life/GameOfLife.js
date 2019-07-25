@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import {Box, Grommet, Button } from "grommet";
-import { grommet } from "grommet/themes";
+import {Box, Button, Text } from "grommet";
 import Grid from "./Grid";
+import ContentBox from "../ContentBox";
+import GithubLink from "../GithubLink";
 
 class GameOfLife extends Component {
 
-	DIMENSION = 40;
+	DIMENSION = 38;
 
 	constructor(props) {
 		super(props);
@@ -67,7 +68,7 @@ class GameOfLife extends Component {
 	}
 
 	loadPreset = () => {
-		let anchor = 10; //this is the i & j value the preset will be centered on
+		let anchor = 15; //this is the i & j value the preset will be centered on
 		let preset = [
 			{i: anchor, j: anchor},
 			{i: anchor + 1, j: anchor},
@@ -89,30 +90,55 @@ class GameOfLife extends Component {
 
 	render() {
 		return (
-			<Grommet theme={grommet}>
-				<Box 
+				<Box
+				align="center"
 				fill={true}
 				background="dark-2"
 				>
-				<Box
-				background="dark-2"
-				overflow="scroll"
-				>
-					<Grid vals={this.state.vals} handleClick={this.handleClick} />
+					<Box
+					align="center"
+					fill="vertical"
+					gap="small"
+					width="80%"
+					overflow={{"vertical": "scroll"}}
+					>
+						<Box
+						background="dark-2"
+						overflow="hidden"
+						height="750px"
+						flex={false}
+						>
+							<Grid vals={this.state.vals} handleClick={this.handleClick} />
+						</Box>
+						<Box
+						flex={false}
+						align="center"
+						justify="center"
+						direction="row"
+						background="dark-2"
+						gap="small"
+						>
+							<Button label="step" margin={{'vertical': 'small'}} onClick={this.step} />
+							<Button label="load preset" margin={{'vertical': 'small'}} onClick={this.loadPreset} />
+							
+						</Box>
+						<ContentBox flex={false}>{/* TODO: add GOL to github! */}
+							<Text margin="small">
+								This is an implementation of John Conway's game of life
+								using styled React components! Each square on the grid above represents
+								a "creature" where its color represents whether its alive (yellow) 
+								or dead (dark blue). You can click on any creature to toggle it between
+								alive and dead. Each time you click the step button an iteration of time
+								is run and the alive creatures in the next state are decided. The rules for
+								deciding if a creature is alive or dead in the next state are simple:
+								If a creature is dead and has 3 living neighbors, then it's switched to alive. 
+								If a creature is alive and has 2 or 3 living neighbors, then it stays alive. 
+								If neither of these 2 conditions are met then the creature dies.
+							</Text>
+							<GithubLink link="www.google.com" />
+						</ContentBox>
+					</Box>
 				</Box>
-				<Box
-				align="center"
-				justify="center"
-				direction="row"
-				background="dark-2"
-				gap="small"
-				>
-				<Button onClick={this.step}>Step</Button>
-				<Button onClick={this.loadPreset}>Load Preset</Button><br />
-				</Box>
-				</Box>
-
-			</Grommet>
 		);
 	}
 }

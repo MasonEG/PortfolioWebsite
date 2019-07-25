@@ -13,6 +13,7 @@ class GithubLink extends Component {
     render() {
         return (
                 <Box
+                flex={false}
 				width="medium"
 				height="xsmall"
                 background="light-3"
@@ -22,17 +23,17 @@ class GithubLink extends Component {
                 border={{
                     "color": "dark-2",
                     "size": "medium",
-                    "style": "groove",
+                    "style": "solid",
                     "side": "all"
                 }}
                 >
 
 					<Button
 					plain={true}
-					href={this.props.link}
+                    href={this.props.link}
+                    target="_blank"
 					>
 						<Box
-						flex
 						align="center"
 						direction="row"
 						>

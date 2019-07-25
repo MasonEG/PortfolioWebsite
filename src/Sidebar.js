@@ -5,7 +5,8 @@ import { FormDown, FormPrevious, Menu} from 'grommet-icons';
 
 class Sidebar extends Component {
     state = {
-        reactProjectsDropdown: false,
+		reactProjectsDropdown: false,
+		schoolProjectsDropdown: false
     }
 
 	renderReactProjects = () => { //renders the dropdown menu for displaying my react creations
@@ -34,10 +35,51 @@ class Sidebar extends Component {
 						<Text>Game of life</Text>
 				    </Box>
 				</Button>
+				<Button key="react chatt rooooooomm" onClick={() => {this.props.updateMain("RCR")}} hoverIndicator>
+					<Box pad={{horizontal: "medium", vertical: "small"}}>
+						<Text>Chat Room</Text>
+				    </Box>
+				</Button>
     	    </Box>
 		)
 		}
 		
+	}
+
+	renderSchoolProjects = () => { //renders the dropdown menu for shool project links
+		if (this.state.schoolProjectsDropdown) {
+			return (
+				<Box
+				fill="horizontal"
+				background="brand"
+				animation={[
+					{ type: "fadeIn", duration: 1000 },
+					{ type: "slideRight", size: "xlarge", duration: 500 }
+				]}
+				>
+					<Button key="stahplite" onClick={() => {this.props.updateMain("SSL")}} hoverIndicator>
+						<Box pad={{horizontal: "medium", vertical: "small"}}>
+							<Text>Stoplight Circuit</Text>
+						</Box>
+					</Button>
+					<Button key="roomba python" onClick={() => {this.props.updateMain("SRP")}} hoverIndicator>
+						<Box pad={{horizontal: "medium", vertical: "small"}}>
+							<Text>Roomba Project</Text>
+						</Box>
+					</Button>
+					<Button key="jfx thing" onClick={() => {this.props.updateMain("STTT")}} hoverIndicator>
+						<Box pad={{horizontal: "medium", vertical: "small"}}>
+							<Text>JFX TicTacToe</Text>
+						</Box>
+					</Button>
+					<Button key="Game of Life" onClick={() => {this.props.updateMain("SLEDC")}} hoverIndicator>
+						<Box pad={{horizontal: "medium", vertical: "small"}}>
+							<Text>LED Cube</Text>
+						</Box>
+					</Button>
+				</Box>
+			)
+		}
 	}
 
     render() {
@@ -64,7 +106,7 @@ class Sidebar extends Component {
 				</Button>
 				<Button  //react projects dropdown toggle
     			key="React Projects Dropdown" 
-   				onClick={() => this.setState({reactProjectsDropdown: !this.state.reactProjectsDropdown})}
+   				onClick={() => this.setState({reactProjectsDropdown: !this.state.reactProjectsDropdown, schoolProjectsDropdown: false})}
     			hoverIndicator
     			>
 					<Box 
@@ -76,9 +118,23 @@ class Sidebar extends Component {
         			</Box>
     			</Button>
 				{ this.renderReactProjects() }
-				<Button key="Contact Me" onClick={() => {alert("nothing here yet")}} hoverIndicator>
+				<Button  //School projects dropdown toggle
+    			key="School Projects Dropdown" 
+   				onClick={() => this.setState({schoolProjectsDropdown: !this.state.schoolProjectsDropdown, reactProjectsDropdown: false})}
+    			hoverIndicator
+    			>
+					<Box 
+					pad={{horizontal: "small", vertical: "small"}}
+					direction="row"
+					>
+            			{this.state.schoolProjectsDropdown ? <FormDown color="accent-1" /> : <FormPrevious color="accent-1" />}
+            			<Text>School Projects</Text>
+        			</Box>
+    			</Button>
+				{ this.renderSchoolProjects() }
+				<Button key="githuuuub" href="https://github.com/MasonEG" target="_blank" hoverIndicator>
 					<Box pad={{horizontal: "medium", vertical: "small"}}>
-						<Text>Contact</Text>
+						<Text>Github</Text>
 					</Box>
 				</Button>
 			</Box>

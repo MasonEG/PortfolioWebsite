@@ -3,6 +3,7 @@ import Todo from "./Todo";
 import AddItemBar from "./AddItemBar";
 import {Box, Heading, Grommet } from "grommet";
 import { grommet } from "grommet/themes";
+import GithubLink from "../GithubLink";
 
 
 
@@ -68,7 +69,9 @@ class App extends Component {
 							<Todo key={item.msg} msg={item.msg} isDone={item.isDone} delete={this.removeTodo.bind(this, item)} handleCheck={this.handleTodoCheck.bind(this, item)} />
 						))}
 					</Box>
+					<GithubLink link="https://github.com/MasonEG/ReactTodoList"/>
 				</Box>
+
 			</Grommet>
 		)
 	}
