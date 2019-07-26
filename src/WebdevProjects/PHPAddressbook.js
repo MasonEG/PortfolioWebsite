@@ -1,12 +1,13 @@
 import React from "react";
 import { Image, Box, Text } from "grommet";
 import BlogBox from "../BlogBox";
+import GithubLink from "../GithubLink";
 import ImageBox from "../ImageBox";
 
-const StoplightProject = props => {
+const PHPAddressbook = props => {
 	return (
 
 	);
 }
 
-export default StoplightProject;
+export default PHPAddressbook;

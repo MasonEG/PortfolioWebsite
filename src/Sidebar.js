@@ -1,12 +1,18 @@
+/*
+	This renders the sidebar in all its WET glory
+	Desperately needs helper components
+	I'll refactor this if I decide to keep this website and not move on to some cooler UI framework
+*/
+
 import React, { Component } from "react";
-import { Grommet, Grid, Heading, Button, Box, Text } from "grommet";
-import { grommet } from "grommet/themes";
-import { FormDown, FormPrevious, Menu} from 'grommet-icons';
+import {  Button, Box, Text } from "grommet";
+import { FormDown, FormPrevious } from 'grommet-icons';
 
 class Sidebar extends Component {
     state = {
 		reactProjectsDropdown: false,
-		schoolProjectsDropdown: false
+		schoolProjectsDropdown: false,
+		workProjectsDropdown: false
     }
 
 	renderReactProjects = () => { //renders the dropdown menu for displaying my react creations
@@ -82,6 +88,32 @@ class Sidebar extends Component {
 		}
 	}
 
+	renderWorkProjects = () => { //renders the dropdown menu for work project links
+		if (this.state.workProjectsDropdown) {
+			return (
+				<Box
+				fill="horizontal"
+				background="brand"
+				animation={[
+					{ type: "fadeIn", duration: 1000 },
+					{ type: "slideRight", size: "xlarge", duration: 500 }
+				]}
+				>
+					<Button key="php addressbook" onClick={() => {this.props.updateMain("WPA")}} hoverIndicator>
+						<Box pad={{horizontal: "medium", vertical: "small"}}>
+							<Text>PHP Addressbook</Text>
+						</Box>
+					</Button>
+					<Button key="zf2 addressbook ver neat" onClick={() => {this.props.updateMain("WZA")}} hoverIndicator>
+						<Box pad={{horizontal: "medium", vertical: "small"}}>
+							<Text>ZF2 Addressbook</Text>
+						</Box>
+					</Button>
+				</Box>
+			)
+		}
+	}
+
     render() {
         return (
             <Box //this is the dark background the sidebar slides into
@@ -106,7 +138,7 @@ class Sidebar extends Component {
 				</Button>
 				<Button  //react projects dropdown toggle
     			key="React Projects Dropdown" 
-   				onClick={() => this.setState({reactProjectsDropdown: !this.state.reactProjectsDropdown, schoolProjectsDropdown: false})}
+   				onClick={() => this.setState({reactProjectsDropdown: !this.state.reactProjectsDropdown, schoolProjectsDropdown: false, workProjectsDropdown: false})}
     			hoverIndicator
     			>
 					<Box 
@@ -120,7 +152,7 @@ class Sidebar extends Component {
 				{ this.renderReactProjects() }
 				<Button  //School projects dropdown toggle
     			key="School Projects Dropdown" 
-   				onClick={() => this.setState({schoolProjectsDropdown: !this.state.schoolProjectsDropdown, reactProjectsDropdown: false})}
+   				onClick={() => this.setState({schoolProjectsDropdown: !this.state.schoolProjectsDropdown, reactProjectsDropdown: false, workProjectsDropdown: false})}
     			hoverIndicator
     			>
 					<Box 
@@ -132,6 +164,20 @@ class Sidebar extends Component {
         			</Box>
     			</Button>
 				{ this.renderSchoolProjects() }
+				<Button  //Work projects dropdown toggle
+    			key="Work Projects Dropdown" 
+   				onClick={() => this.setState({workProjectsDropdown: !this.state.workProjectsDropdown, reactProjectsDropdown: false, schoolProjectsDropdown: false})}
+    			hoverIndicator
+    			>
+					<Box 
+					pad={{horizontal: "small", vertical: "small"}}
+					direction="row"
+					>
+            			{this.state.workProjectsDropdown ? <FormDown color="accent-1" /> : <FormPrevious color="accent-1" />}
+            			<Text>Webdev Projects</Text>
+        			</Box>
+    			</Button>
+				{ this.renderWorkProjects() }
 				<Button key="githuuuub" href="https://github.com/MasonEG" target="_blank" hoverIndicator>
 					<Box pad={{horizontal: "medium", vertical: "small"}}>
 						<Text>Github</Text>

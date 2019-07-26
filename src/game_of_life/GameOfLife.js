@@ -122,7 +122,7 @@ class GameOfLife extends Component {
 							<Button label="load preset" margin={{'vertical': 'small'}} onClick={this.loadPreset} />
 							
 						</Box>
-						<ContentBox flex={false}>{/* TODO: add GOL to github! */}
+						<ContentBox flex={false} height="400px">{/* TODO: add GOL to github! */}
 							<Text margin="small">
 								This is an implementation of John Conway's game of life
 								using styled React components! Each square on the grid above represents
@@ -135,7 +135,7 @@ class GameOfLife extends Component {
 								If a creature is alive and has 2 or 3 living neighbors, then it stays alive. 
 								If neither of these 2 conditions are met then the creature dies.
 							</Text>
-							<GithubLink link="www.google.com" />
+							<GithubLink link="https://github.com/MasonEG/Game-Of-Life-in-React" />
 						</ContentBox>
 					</Box>
 				</Box>

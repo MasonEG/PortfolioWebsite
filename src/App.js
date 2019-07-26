@@ -57,8 +57,14 @@ class App extends Component {
 			case "SCG":
 				this.setState({mainContent: <CrosswordGeneratorProject />, header: "Crossword Generator"});
 				break;
+			case "WPA":
+				this.setState({mainContent: <PHPAddressbook />, header: "PHP Addressbook"});
+				break;
+			case "WZA":
+				this.setState({mainContent: <ZF2Addressbook />, header: "Zend Framework 2 Addressbook"});
+				break;
 			default:
-				this.setState({mainContent: <Text>🚨 ERR 🚨</Text>});
+				this.setState({mainContent: <Text>🚨 ERR 🚨 Sidebar.js called a page that doesn't exist!</Text>});
 		}
 	}
 

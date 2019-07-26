@@ -2,6 +2,8 @@ import React from "react";
 import {Box, Anchor, Text, Image, Paragraph } from "grommet";
 import ContentBox from "./ContentBox";
 import MyPic from "./MyPic.jpg";
+import ImageBox from "./ImageBox";
+import { DocumentNotes } from "grommet-icons";
 
 const AboutMe = props => {
 	return (
@@ -14,21 +16,26 @@ const AboutMe = props => {
 			<ContentBox>
 				<br/>
 				<Box
+				flex={false}
 				width="medium"
-				height="medium"
+				height="420px"
 				round="medium"
+				background="dark-6"
+				elevation="medium"
 				>
-					<Image fit="contain" src={MyPic} />
+					<Image fit="contain" margin="small" src={MyPic} />
 				</Box>
-				<Paragraph>
+				<Text margin={{"vertical": "medium", "horizontal": "200px"}}>
 					I'm a 3rd year software engineering student currently studying and working as a web developer
-					at Iowa State University. My passions include JavaScript, playing guitar, rock climbing, and running. 
+					at Iowa State University. My passions include JavaScript, playing guitar, rock climbing, longboarding, and running. 
 					Check out some of the projects I've done in the sidebar! 
-				</Paragraph>
+				</Text>
 				<Box
+				margin="small"
 				background="dark-3"
 				round="small"
 				pad="small"
+				elevation="medium"
 				flex={false}
 				>
 					<Text size="medium">Contact me by:</Text>

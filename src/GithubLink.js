@@ -20,6 +20,7 @@ class GithubLink extends Component {
                 margin="small"
                 padding="xsmall"
                 round="medium"
+                elevation="medium"
                 border={{
                     "color": "dark-2",
                     "size": "medium",
