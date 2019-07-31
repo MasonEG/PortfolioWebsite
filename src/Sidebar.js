@@ -46,6 +46,11 @@ class Sidebar extends Component {
 						<Text>Chat Room</Text>
 				    </Box>
 				</Button>
+				<Button key="fluidSIm" href="https://masoneg.github.io/HTMLGridFluidSim/" target="_blank" hoverIndicator>
+					<Box pad={{horizontal: "medium", vertical: "small"}}>
+						<Text>Fluid Sim</Text>
+				    </Box>
+				</Button>
     	    </Box>
 		)
 		}
@@ -146,7 +151,7 @@ class Sidebar extends Component {
 					direction="row"
 					>
             			{this.state.reactProjectsDropdown ? <FormDown color="accent-1" /> : <FormPrevious color="accent-1" />}
-            			<Text>React Creations</Text>
+            			<Text>JS Creations</Text>
         			</Box>
     			</Button>
 				{ this.renderReactProjects() }
