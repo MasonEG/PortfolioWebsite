@@ -5,6 +5,8 @@ import { Grommet, Grid, Heading, Button, Box, Text } from "grommet";
 import { grommet } from "grommet/themes";
 import { FormDown, FormPrevious, Menu} from 'grommet-icons';
 //import { CrosswordGeneratorProject, LEDCubeProject, RoombaProject, StoplightProject, TicTacToeProject } from "./SchoolProjects";
+import ZF2Addressbook from "./WebdevProjects/ZF2Addressbook";
+import PHPAddressbook from "./WebdevProjects/PHPAddressbook";
 import AboutMe from "./AboutMe";
 import TodoList from "./todo_list/TodoList";
 import GameOfLife from "./game_of_life/GameOfLife";
@@ -58,10 +60,10 @@ class App extends Component {
 				this.setState({mainContent: <CrosswordGeneratorProject />, header: "Crossword Generator"});
 				break;
 			case "WPA":
-				this.setState({mainContent: <PHPAddressbook />, header: "PHP Addressbook"});
+				this.setState({mainContent: <PHPAddressbook />, header: "PHP address book"});
 				break;
 			case "WZA":
-				this.setState({mainContent: <ZF2Addressbook />, header: "Zend Framework 2 Addressbook"});
+				this.setState({mainContent: <ZF2Addressbook />, header: "Zend Framework 2 address book"});
 				break;
 			case "Resume":
 				this.setState({mainContent: <p>Not added, yet</p>, header: "Resume"});
