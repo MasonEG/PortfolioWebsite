@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "./static/css/main.4d023a49.chunk.css",
-    "main.js": "./static/js/main.90d1e554.chunk.js",
-    "main.js.map": "./static/js/main.90d1e554.chunk.js.map",
-    "runtime~main.js": "./static/js/runtime~main.d653cc00.js",
-    "runtime~main.js.map": "./static/js/runtime~main.d653cc00.js.map",
-    "static/js/2.9a53d978.chunk.js": "./static/js/2.9a53d978.chunk.js",
-    "static/js/2.9a53d978.chunk.js.map": "./static/js/2.9a53d978.chunk.js.map",
-    "index.html": "./index.html",
-    "precache-manifest.8bb7f6f1c411be2aa71a8cf088434856.js": "./precache-manifest.8bb7f6f1c411be2aa71a8cf088434856.js",
-    "service-worker.js": "./service-worker.js",
-    "static/css/main.4d023a49.chunk.css.map": "./static/css/main.4d023a49.chunk.css.map",
-    "static/media/ChatClient.PNG": "./static/media/ChatClient.6c18c12c.PNG",
-    "static/media/InitialWebsite.PNG": "./static/media/InitialWebsite.a975c1db.PNG",
-    "static/media/MyPic.jpg": "./static/media/MyPic.6246769b.jpg",
-    "static/media/githublogo.png": "./static/media/githublogo.ff1d322d.png"
+    "main.css": "/PortfolioWebsite/static/css/main.4d023a49.chunk.css",
+    "main.js": "/PortfolioWebsite/static/js/main.90d1e554.chunk.js",
+    "main.js.map": "/PortfolioWebsite/static/js/main.90d1e554.chunk.js.map",
+    "runtime~main.js": "/PortfolioWebsite/static/js/runtime~main.3612083e.js",
+    "runtime~main.js.map": "/PortfolioWebsite/static/js/runtime~main.3612083e.js.map",
+    "static/js/2.f0880917.chunk.js": "/PortfolioWebsite/static/js/2.f0880917.chunk.js",
+    "static/js/2.f0880917.chunk.js.map": "/PortfolioWebsite/static/js/2.f0880917.chunk.js.map",
+    "index.html": "/PortfolioWebsite/index.html",
+    "precache-manifest.b532dc1d28af2e44319d24f8d6c766fc.js": "/PortfolioWebsite/precache-manifest.b532dc1d28af2e44319d24f8d6c766fc.js",
+    "service-worker.js": "/PortfolioWebsite/service-worker.js",
+    "static/css/main.4d023a49.chunk.css.map": "/PortfolioWebsite/static/css/main.4d023a49.chunk.css.map",
+    "static/media/ChatClient.PNG": "/PortfolioWebsite/static/media/ChatClient.6c18c12c.PNG",
+    "static/media/InitialWebsite.PNG": "/PortfolioWebsite/static/media/InitialWebsite.a975c1db.PNG",
+    "static/media/MyPic.jpg": "/PortfolioWebsite/static/media/MyPic.6246769b.jpg",
+    "static/media/githublogo.png": "/PortfolioWebsite/static/media/githublogo.ff1d322d.png"
   }
 }
