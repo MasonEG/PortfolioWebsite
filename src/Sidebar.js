@@ -183,6 +183,11 @@ class Sidebar extends Component {
         			</Box>
     			</Button>
 				{ this.renderWorkProjects() }
+				<Button key="Resumeasdfa" onClick={() => this.props.updateMain("Resume")} hoverIndicator>
+					<Box pad={{horizontal: "medium", vertical: "small"}}>
+						<Text>Resume</Text>
+					</Box>
+				</Button>
 				<Button key="githuuuub" href="https://github.com/MasonEG" target="_blank" hoverIndicator>
 					<Box pad={{horizontal: "medium", vertical: "small"}}>
 						<Text>Github</Text>

@@ -63,6 +63,8 @@ class App extends Component {
 			case "WZA":
 				this.setState({mainContent: <ZF2Addressbook />, header: "Zend Framework 2 Addressbook"});
 				break;
+			case "Resume":
+				this.setState({mainContent: <p>Not added, yet</p>, header: "Resume"});
 			default:
 				this.setState({mainContent: <Text>🚨 ERR 🚨 Sidebar.js called a page that doesn't exist!</Text>});
 		}
