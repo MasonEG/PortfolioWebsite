@@ -45,19 +45,19 @@ class App extends Component {
 				this.setState({mainContent: <AboutWebsite key="about_website" />, header: "What you're viewing"});
 				break;
 			case "SSL":
-				this.setState({mainContent: <StoplightProject />, header: "Stop light project"});
+				this.setState({mainContent: <p>Not added, yet</p>, header: "Stop light project"});
 				break;
 			case "SRP":
-				this.setState({mainContent: <RoombaProject />, header: "Roomba project"});
+				this.setState({mainContent: <p>Not added, yet</p>, header: "Roomba project"});
 				break;
 			case "STTT":
-				this.setState({mainContent: <TicTacToeProject />, header: "Tic Tac Toe in JavaFX"});
+				this.setState({mainContent: <p>Not added, yet</p>, header: "Tic Tac Toe in JavaFX"});
 				break;
 			case "SLEDC":
-				this.setState({mainContent: <LEDCubeProject />, header: "LED Cube"});
+				this.setState({mainContent: <p>Not added, yet</p>, header: "LED Cube"});
 				break;
 			case "SCG":
-				this.setState({mainContent: <CrosswordGeneratorProject />, header: "Crossword Generator"});
+				this.setState({mainContent: <p>Not added, yet</p>, header: "Crossword Generator"});
 				break;
 			case "WPA":
 				this.setState({mainContent: <PHPAddressbook />, header: "PHP address book"});
@@ -65,8 +65,7 @@ class App extends Component {
 			case "WZA":
 				this.setState({mainContent: <ZF2Addressbook />, header: "Zend Framework 2 address book"});
 				break;
-			case "Resume":
-				this.setState({mainContent: <p>Not added, yet</p>, header: "Resume"});
+
 			default:
 				this.setState({mainContent: <Text>🚨 ERR 🚨 Sidebar.js called a page that doesn't exist!</Text>});
 		}

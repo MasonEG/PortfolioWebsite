@@ -36,6 +36,11 @@ class Sidebar extends Component {
 						<Text>Todo list</Text>
 					</Box>
 				</Button>
+				<Button key="the_fanciest_website" href="https://masoneg.github.io/FancyWebsite" target="_blank" hoverIndicator>
+					<Box pad={{horizontal: "medium", vertical: "small"}}>
+						<Text>Image Animations</Text>
+					</Box>
+				</Button>
     	        <Button key="Game of Life" onClick={() => {this.props.updateMain("GOL")}} hoverIndicator>
 					<Box pad={{horizontal: "medium", vertical: "small"}}>
 						<Text>Game of life</Text>
@@ -183,7 +188,12 @@ class Sidebar extends Component {
         			</Box>
     			</Button>
 				{ this.renderWorkProjects() }
-				<Button key="Resumeasdfa" onClick={() => this.props.updateMain("Resume")} hoverIndicator>
+				<Button 
+				key="Resumeasdfa" 
+				href="https://docs.google.com/document/d/1tgaB1kwItc4awOAULnaQba60N-CRlDeBwypNGJ-1cqk/edit?usp=sharing" 
+				target="_blank"
+				hoverIndicator
+				>
 					<Box pad={{horizontal: "medium", vertical: "small"}}>
 						<Text>Resume</Text>
 					</Box>
