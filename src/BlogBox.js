@@ -6,7 +6,7 @@ const BlogBox = props => {
 	return (
 		<Box
 		fill="vertical"
-		background="dark-2"
+		background="#444444"
 		width="80%"
 		pad="small"
 		>

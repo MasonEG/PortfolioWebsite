@@ -93,7 +93,7 @@ class GameOfLife extends Component {
 				<Box
 				align="center"
 				fill={true}
-				background="dark-2"
+				background="#444444"
 				>
 					<Box
 					align="center"
@@ -103,7 +103,7 @@ class GameOfLife extends Component {
 					overflow={{"vertical": "scroll"}}
 					>
 						<Box
-						background="dark-2"
+						background="#444444"
 						overflow="hidden"
 						height="750px"
 						flex={false}
@@ -115,7 +115,7 @@ class GameOfLife extends Component {
 						align="center"
 						justify="center"
 						direction="row"
-						background="dark-2"
+						background="#444444"
 						gap="small"
 						>
 							<Button label="step" margin={{'vertical': 'small'}} onClick={this.step} />

@@ -116,7 +116,7 @@ class App extends Component {
 			<Box 
 			gridArea="main" 
 			align="center"
-			background="dark-2"
+			background="#444444"
 			>
 				{this.state.mainContent}
 			</Box>

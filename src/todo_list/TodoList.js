@@ -48,7 +48,7 @@ class App extends Component {
 				pad="none" 
 				fill="vertical"
 				align="center" 
-				background="dark-2">
+				background="#444444">
 					<Heading
 					margin={{
 						"vertical": "xsmall"	
