@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "./static/css/main.4d023a49.chunk.css",
-    "main.js": "./static/js/main.96e0cdf4.chunk.js",
-    "main.js.map": "./static/js/main.96e0cdf4.chunk.js.map",
+    "main.js": "./static/js/main.ddd5074c.chunk.js",
+    "main.js.map": "./static/js/main.ddd5074c.chunk.js.map",
     "runtime~main.js": "./static/js/runtime~main.d653cc00.js",
     "runtime~main.js.map": "./static/js/runtime~main.d653cc00.js.map",
     "static/js/2.c387e155.chunk.js": "./static/js/2.c387e155.chunk.js",
     "static/js/2.c387e155.chunk.js.map": "./static/js/2.c387e155.chunk.js.map",
     "index.html": "./index.html",
-    "precache-manifest.ca43db7d4641f9df4813c37eafd45d82.js": "./precache-manifest.ca43db7d4641f9df4813c37eafd45d82.js",
+    "precache-manifest.0d17cf92447cc0f09174a95c1544f822.js": "./precache-manifest.0d17cf92447cc0f09174a95c1544f822.js",
     "service-worker.js": "./service-worker.js",
     "static/css/main.4d023a49.chunk.css.map": "./static/css/main.4d023a49.chunk.css.map",
     "static/media/ChatClient.PNG": "./static/media/ChatClient.6c18c12c.PNG",
